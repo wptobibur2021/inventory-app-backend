@@ -6,23 +6,23 @@
 const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
     fullName: {
-      type: 'string',
+      type: String,
       required: true
     },
     email: {
-      type: 'string',
+      type: String,
         required: true
     },
     password: {
-        type: 'string',
+        type: String,
         required: true,
         minLength: 8
     },
     nidNo: {
-        type: Number,
+        type: String,
     },
     phoneNumber: {
-        type: Number,
+        type: String,
         required: true
     },
     userRole: {

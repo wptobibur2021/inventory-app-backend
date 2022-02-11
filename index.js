@@ -59,10 +59,6 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
         console.error(error);
     }
 });
-
-
-
-
 // Backend Server Start Port
 const port = process.env.PORT || 5080
 
@@ -72,7 +68,7 @@ const port = process.env.PORT || 5080
 * ===================
 */
 const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@techbd71.5ewxj.mongodb.net/inventoryApp?retryWrites=true&w=majority`
-//const dbURL = 'mongodb://127.0.0.1:27017/test'
+// const dbURL = 'mongodb://127.0.0.1:27017/inventory'
 // mongoose.connect(dbURL, )
 //     .then(()=>console.log('DB Ok'))
 //     .catch(err => console.log(err))
