@@ -10,7 +10,6 @@ const bcrypt = require('bcrypt')
 // User Registration
 router.post('/registration', async (req, res) => {
     try{
-        console.log('Data: ', req.body)
         // Password Generate
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -23,7 +22,6 @@ router.post('/registration', async (req, res) => {
         })
         const user = await newUser.save()
         await  res.status(200).json(user)
-
     }catch(e){
         await res.status(500).json(e.message)
     }
@@ -42,8 +40,5 @@ router.post('/login', async (req,res)=>{
     }catch(e){
         await res.status(500).json(e.message)
     }
-
 })
-
-
 module.exports = router
