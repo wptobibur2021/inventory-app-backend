@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express')
 require('dotenv').config()
 const app = express()
-const multer  = require('multer')
-const cors = require('cors')
+const multer = require('multer')
+const cors = require("cors")
 const path = require("path");
 const productRoute = require('./Routers/products')
 const costRoute = require('./Routers/cost')
@@ -17,7 +17,6 @@ const orderRoute = require('./Routers/order')
 const damageRoute = require('./Routers/damage')
 const returnRoute = require('./Routers/return')
 const userRoute = require('./Routers/user')
-
 /**
  *  ======================
  *      MIDDLEWARE
@@ -72,14 +71,14 @@ const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@techb
 // mongoose.connect(dbURL, )
 //     .then(()=>console.log('DB Ok'))
 //     .catch(err => console.log(err))
-mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(()=>console.log('DB Ok'))
+mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('DB Ok'))
     .catch(err => console.log(err))
 
 // Root Get API
-app.get('/', async (req, res)=>{
+app.get('/', async (req, res) => {
     await res.send('Backend Server ok')
 })
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`'Backend Server Start at http://localhost:${port}`)
 })
