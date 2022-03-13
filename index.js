@@ -22,9 +22,14 @@ const userRoute = require('./Routers/user')
  *      MIDDLEWARE
  *  ======================
  */
-app.use(cors({
-    origin: "*",
-}))
+app.use(cors(), function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://inventory-app-2022.web.app"); // update to match the domain you will make the request from
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
 app.use(express.json())
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 app.use('/api/products', productRoute)
