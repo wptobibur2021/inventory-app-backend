@@ -23,7 +23,7 @@ const userRoute = require('./Routers/user')
  *  ======================
  */
 app.use(cors({
-    origin: "https://arcane-stream-32884.herokuapp.com"
+    origin: "*",
 }))
 app.use(express.json())
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
